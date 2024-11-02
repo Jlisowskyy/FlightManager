@@ -1,0 +1,46 @@
+TODO:
+
+
+QUESTIONS:
+- co zrobic z nullem z ILoadable
+
+Wzorce:
+-Builder
+-Command
+-Chain of responsibility
+
+COMPONENTS:
+- Parser - check
+- db query - check
+- property query
+- fiters 
+- sql setters
+- removers - simply add generic remove method
+
+- sql object 
+
+TEST COMMANDS:
+- display * from Flight
+- display ID, TakeOffTime, WorldPosition from Flights where ID > 10 and ID < 20
+- display * from Flight where ID=1162 or ID = 1177
+- update Flight set (WorldPosition.Lat = 54.5323, WorldPosition.Long=21.453) where ID=1162 or ID = 1177 or ID = 1000
+- update Flight set (ID = 1) where ID=1162 or ID = 1177
+- delete Flight where WorldPosition.Lat > 45.0 or WorldPosition.Long < -70.0
+- add Flight new (ID=123, WorldPosition.Lat=21, WorldPosition.Long=50)
+ 
+ 
+DO DODANIA:
+    A) Display:
+        - plane w Flight - done
+        - airporty w Flight - done
+    B) Update :
+        - zaimplementuj logikę komendy  - done
+        - zmiana ID musi być weryfikowana w DB - done
+    C) Delete :
+        - zaimplementuj logike komendy - done
+        - po prostu usuwamy, pozostałość zostaje consistent bo referencje - done
+    D) Add:
+        - zaimplementuj logikę komendy - done
+        - po pierwsze sprawdzamy czy podano wszystkie pola - done
+        - po drugie sprawdzamy czy istnieją odpowiednie ID - done
+        - co w przypadku Flight plane lub airport? (sol1: podajemy tylko ID, sol2 zawsze podajemy wszystko)
